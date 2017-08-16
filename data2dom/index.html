@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue MVVM模拟</title>
+    <style>
+        *{padding:0; margin:0;}
+        body{
+            width:930px;
+            margin:100px auto;
+            padding:0 20px;
+            line-height:30px;
+            color:#fff;
+            background: lightseagreen;
+        }
+        input{
+            line-height: 30px;
+            height:30px;
+            border:1px solid #eee;
+            color:#333;
+        }
+        button{
+            line-height: 30px;
+            height:30px;
+            padding: 0 20px;
+            background:#f60;
+            color:#fff;
+            border:1px solid #f60;
+            cursor:pointer;
+        }
+    </style>
+    <script src="src/Observer.js"></script>
+    <script src="src/Watcher.js"></script>
+    <script src="src/Compiler.js"></script>
+    <script src="src/MVVM.js"></script>
+</head>
+<body>
+    <div id="msg">
+        <p>{{a + b}} 这是普通 文本</p>
+        <p>{{a + 1 + message}}这也是普通文本</p>
+        <p>{{message}}</p>
+        <p><input type="text" v-model="message" /></p>
+        <p>{{message}}</p>
+        <p><button v-on:click="clickBtn(message)">Click!!</button></p>
+    </div>
+    <script>
+        var mvvm = new MVVM({
+            el: 'msg',
+            data: {
+                a: "louliying ",
+                b: "is ",
+                message: "Hi, Cindy!"
+            },
+            methods: {
+                clickBtn: function(message) {
+                    this.message += " Come on.";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

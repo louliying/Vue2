@@ -14,12 +14,16 @@
             background: lightseagreen;
         }
         input{
+            margin:10px 0;
+            padding: 0 10px;
+            width:300px;
             line-height: 30px;
             height:30px;
             border:1px solid #eee;
             color:#333;
         }
         button{
+            margin:10px 0;
             line-height: 30px;
             height:30px;
             padding: 0 20px;
@@ -29,26 +33,25 @@
             cursor:pointer;
         }
     </style>
+    <script src="src/Dep.js"></script>
     <script src="src/Observer.js"></script>
     <script src="src/Watcher.js"></script>
     <script src="src/Compiler.js"></script>
-    <script src="src/MVVM.js"></script>
+    <script src="src/myVue.js"></script>
 </head>
 <body>
     <div id="msg">
-        <p>{{a + b}} 这是普通 文本</p>
-        <p>{{a + 1 + message}}这也是普通文本</p>
+        <p>{{firstName + lastName}} 这是普通 文本</p>
         <p>{{message}}</p>
         <p><input type="text" v-model="message" /></p>
-        <p>{{message}}</p>
         <p><button v-on:click="clickBtn(message)">Click!!</button></p>
     </div>
     <script>
-        var mvvm = new MVVM({
+        var myvue = new MyVue({
             el: 'msg',
             data: {
-                a: "louliying ",
-                b: "is ",
+                firstName: "Lou ",
+                lastName: "liying ",
                 message: "Hi, Cindy!"
             },
             methods: {

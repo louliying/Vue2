@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 修改Vue的</title>
+    <script src="src/dep.js"></script>
+    <script src="src/Watcher.js"></script>
+    <script src="src/Observer.js"></script>
+    <script src="src/Vue.js"></script>
+    <script>
+        var vue = new Vue({
+            data: {
+                name: 'cindy',
+                age: 30
+            }
+        });
+        vue.$watch('name',() => {
+            console.log('你的名字被改了:' + vue._data.name);
+        })
+        vue._data.name = "louloudd";
+    </script>
+</head>
+<body>
+
+</body>
+</html>
